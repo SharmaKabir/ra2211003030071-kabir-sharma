@@ -31,7 +31,7 @@ const DoctorCard = ({ doctor}) => {
   return (
     <div className="doctor-card" data-testid="doctor-card">
         <div className='doctor-image'>
-            <img src={doctor.image}/>
+            <img src={doctor.photo}/>
         </div>
         <div className="doctor-details">
           <h2 data-testid="doctor-name">{doctor.name}</h2>
