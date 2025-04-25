@@ -53,10 +53,20 @@ function App() {
     }
 
     
+    // if (filters.consultation) {
+    //   result = result.filter(doctor =>
+    //     doctor.consultationType === filters.consultation
+    //   )
+    // }
     if (filters.consultation) {
-      result = result.filter(doctor =>
-        doctor.consultationType === filters.consultation
-      )
+      result = result.filter(doctor => {
+        if (filters.consultation === 'video-consult') {
+          return doctor.video_consult === true;
+        } else if (filters.consultation === 'in-clinic') {
+          return doctor.in_clinic === true;
+        }
+        return true;
+      });
     }
 
     

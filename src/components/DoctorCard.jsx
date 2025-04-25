@@ -15,6 +15,7 @@ const DoctorCard = ({ doctor}) => {
       const specialtyNames = Array.isArray(doctor.specialities) 
       ? doctor.specialities.map(s => s.name).join(', ')
       : 'No specialties listed';
+      const consultationType = doctor.video_consult ? 'Video Consult' : (doctor.in_clinic ? 'In Clinic' : 'Not available');
   return (
     <div className="doctor-card" data-testid="doctor-card">
         <div className='doctor-image'>
@@ -26,7 +27,7 @@ const DoctorCard = ({ doctor}) => {
           <p data-testid="doctor-experience">{doctor.experience || 0} years of experience</p>
           <p data-testid="doctor-fee">Consultation Fee: {doctor.fees || 0}</p>
           <div className="doctor-consultation-type">
-            {doctor.consultationType === 'video-consult' ? 'Video Consult' : 'In Clinic'}
+            {consultationType}
           </div>
         </div>
     </div>
