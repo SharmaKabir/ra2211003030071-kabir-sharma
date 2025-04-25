@@ -69,10 +69,19 @@ function App() {
     }
 
     
+    // if (filters.sort === 'fees') {
+    //   result.sort((a, b) => (a.fees ?? Infinity) - (b.fees ?? Infinity))
+    // } else if (filters.sort === 'experience') {
+    //   result.sort((a, b) => (b.experience ?? 0) - (a.experience ?? 0))
+    // }
     if (filters.sort === 'fees') {
-      result.sort((a, b) => a.fees - b.fees)
+      result.sort((a, b) => {
+        const feeA = typeof a.fees === 'string' ? parseInt(a.fees.replace(/[^\d]/g, '')) : a.fees ?? Infinity;
+        const feeB = typeof b.fees === 'string' ? parseInt(b.fees.replace(/[^\d]/g, '')) : b.fees ?? Infinity;
+        return feeA - feeB;
+      });
     } else if (filters.sort === 'experience') {
-      result.sort((a, b) => b.experience - a.experience)
+      result.sort((a, b) => (b.experience ?? 0) - (a.experience ?? 0));
     }
 
     setFilteredDoctors(result)
