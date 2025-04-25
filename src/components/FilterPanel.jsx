@@ -77,9 +77,9 @@ function FilterPanel({ doctors, filters, setFilters }) {
       ];
   const [searchParams, setSearchParams] = useSearchParams()
 
-  const allSpecialties = [...new Set(
-    doctors.flatMap(doctor => Array.isArray(doctor.specialties) ? doctor.specialties : [])
-  )].sort()
+//   const allSpecialties = [...new Set(
+//     doctors.flatMap(doctor => Array.isArray(doctor.specialties) ? doctor.specialties : [])
+//   )].sort()
 
   useEffect(() => {
     const consultation = searchParams.get('consultation') || ''
@@ -166,7 +166,7 @@ function FilterPanel({ doctors, filters, setFilters }) {
       <div className="filter-section">
         <h3 data-testid="filter-header-speciality">Speciality</h3>
         <div className="filter-options">
-          {allSpecialties.map((specialty, index) => {
+          {SPECIALTIES.map((specialty, index) => {
             const testId = `filter-specialty-${specialty.replace(/\//g, '-').replace(/\s+/g, '-')}`
             return (
               <label key={`specialty-${index}-${specialty}`}>
