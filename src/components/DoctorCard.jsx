@@ -21,7 +21,7 @@ const DoctorCard = ({ doctor}) => {
           <h2 data-testid="doctor-name">{doctor.name}</h2>
           <p data-testid="doctor-specialty">{doctor.specialties ? doctor.specialties.join(', ') : 'No specialties listed'}</p>
           <p data-testid="doctor-experience">{doctor.experience || 0} years of experience</p>
-          <p data-testid="doctor-fee">Consultation Fee: ₹{doctor.fees || 0}</p>
+          <p data-testid="doctor-fee">Consultation Fee: {doctor.fees || 0}</p>
           <div className="doctor-consultation-type">
             {doctor.consultationType === 'video-consult' ? 'Video Consult' : 'In Clinic'}
           </div>
