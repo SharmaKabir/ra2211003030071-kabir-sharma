@@ -162,27 +162,6 @@ function FilterPanel({ doctors, filters, setFilters }) {
           </label>
         </div>
       </div>
-
-      <div className="filter-section">
-        <h3 data-testid="filter-header-speciality">Speciality</h3>
-        <div className="filter-options">
-          {SPECIALTIES.map((specialty, index) => {
-            const testId = `filter-specialty-${specialty.replace(/\//g, '-').replace(/\s+/g, '-')}`
-            return (
-              <label key={`specialty-${index}-${specialty}`}>
-                <input
-                  type="checkbox"
-                  data-testid={testId}
-                  checked={filters.specialties.includes(specialty)}
-                  onChange={(e) => handleSpecialtyChange(specialty, e.target.checked)}
-                />
-                {specialty}
-              </label>
-            )
-          })}
-        </div>
-      </div>
-
       <div className="filter-section">
         <h3 data-testid="filter-header-sort">Sort By</h3>
         <div className="filter-options">
@@ -206,6 +185,27 @@ function FilterPanel({ doctors, filters, setFilters }) {
           </label>
         </div>
       </div>
+      <div className="filter-section">
+        <h3 data-testid="filter-header-speciality">Speciality</h3>
+        <div className="filter-options">
+          {SPECIALTIES.map((specialty, index) => {
+            const testId = `filter-specialty-${specialty.replace(/\//g, '-').replace(/\s+/g, '-')}`
+            return (
+              <label key={`specialty-${index}-${specialty}`}>
+                <input
+                  type="checkbox"
+                  data-testid={testId}
+                  checked={filters.specialties.includes(specialty)}
+                  onChange={(e) => handleSpecialtyChange(specialty, e.target.checked)}
+                />
+                {specialty}
+              </label>
+            )
+          })}
+        </div>
+      </div>
+
+     
     </div>
   )
 }
