@@ -62,8 +62,10 @@ function App() {
     
     if (filters.specialties.length > 0) {
       result = result.filter(doctor =>
-        filters.specialties.some(specialty => 
-          doctor.specialties.includes(specialty)
+        Array.isArray(doctor.specialities) &&
+        doctor.specialities.some(specialty => 
+         
+          filters.specialties.includes(specialty.name)
         )
       )
     }

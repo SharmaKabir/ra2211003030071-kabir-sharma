@@ -19,7 +19,7 @@ const DoctorCard = ({ doctor}) => {
         </div>
         <div className="doctor-details">
           <h2 data-testid="doctor-name">{doctor.name}</h2>
-          <p data-testid="doctor-specialty">{doctor.specialties ? doctor.specialties.join(', ') : 'No specialties listed'}</p>
+          <p data-testid="doctor-specialty">{doctor.specialities ? doctor.specialities.join(', ') : 'No specialties listed'}</p>
           <p data-testid="doctor-experience">{doctor.experience || 0} years of experience</p>
           <p data-testid="doctor-fee">Consultation Fee: {doctor.fees || 0}</p>
           <div className="doctor-consultation-type">
